@@ -1,16 +1,22 @@
 language: python
 python:
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "nightly"
-# command to install dependencies
-# cache:
-#   - "pip"
+- '3.3'
+- '3.4'
+- '3.5'
+- nightly
 install:
-  - "pip install -r requirements.txt"
-  - "pip install pep8"
-# command to run tests
+- pip install -r requirements.txt
+- pip install pep8
 script:
-  - python setup.py test
-  - pep8 .
+- python setup.py test
+- pep8 traveler tests
+# use either travis encrypt $(heroku auth:token) --add deploy.api_key
+# or travis setup heroku
+deploy:
+  provider: heroku
+  api_key:
+    secure: dMo9dO0txoqE1P36B6Mpu6Qx+UvKhZGoov0mQj+zBHEbv2mEDCUtIm2HtwlU1JYl2JmIlqhfOCCTsHgYg7+L3oreD15JBzdeKDpx5bVKUYQwE1eUOBtj0eFWNOeJ657VzJhi3r4+vMqEvrC1WHeuWcOdt+fBDoXdDEhUN/RYQc7n3de/geEp95j9E5sTX6nh0rKH8Rxcr1frPJZRKGVfd7+ylmt+/3amS+D+B2ThOdaZjL2ReO1rZPLsu2W5CPwozGbZRANp05EWdsx2yDxV3IO+uj6m7T7/gaPV86+F0xdVDL5WyPWVt+Jv9tMnj4M0vGtf+FJXuar9t9UiDw773tjBhcG8FdNyUfh6jR1yaBza/bzn9Bf3u8cOsmEnSdYw1ydaoIJzPgoQmHX3sHsUIkzjJGPZBKp4KnzK9Quk3+Vc251nMFWRSl22qsMsTY0TF4bPoivn30iwzYKxVhvv/aWfzmrA/P+2/aOhEfvxs2N2LMMX9cMhVKAFYLChxeRx7mSzzfB9q7rcYHGVXx6f+jlG8SN7PYMthuTXJ06igAEGz+Z1MwktnsCbiLo24K++Otr9LUSlLejGeYAj5m93p3AM9w9GuZ0JUOqvEcITcZCqL4uymR+AqkcpiCN/bDyWRYcHjtIpdpZs3y1zeOh7vn8uh7F982UGSZcf/8QJvXQ=
+  app: the-traveler
+  on:
+    repo: MrTrustworthy/traveler
+    python: '3.5'

@@ -15,3 +15,6 @@ class MainTest(unittest.TestCase):
 
         j = self.poller.load()
         self.assertTrue(isinstance(j, str))
+
+if __name__ == '__main__':
+    unittest.main()

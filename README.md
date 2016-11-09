@@ -14,4 +14,4 @@ Run tests with
 python setup.py test
 ~~~
 
-[![Docs](https://mrtrustworthy.github.io/traveler/)
+[Docs](https://mrtrustworthy.github.io/traveler/)

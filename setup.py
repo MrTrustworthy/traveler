@@ -22,6 +22,8 @@ setup(
     test_suite="tests",
     install_requires=[
         "requests>=2.11",
+        "Flask>=0.11",
+        "gunicorn>=19",
         "Sphinx>=1.4"
     ]
 )
